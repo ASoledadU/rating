@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="{% url 'add' %}" method="POST">
+    {% csrf_token %}
+    <label>x<input type="number" name="x" required></label>
+    <label>Y<input type="number" name="y" required></label>
+    <button>add</button>
+    </form>
+    {% if request.method == "POST" %}
+        {% if error %}
+        {{ error }}
+        {% endif %}
+        <p>{{ x }} + {{ y }} = {{ answer }}</p>
+    {% endif %}
+
+</body>
+
+</html>

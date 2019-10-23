@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+    margin: 300px;
+    font-size: 40px;
+    background-image: url(https://i.pinimg.com/originals/31/0d/4a/310d4a2f36b4fe4a07a31f5f7759a4d3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+input {
+    padding: 10px;
+}
+button {
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}

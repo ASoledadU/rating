@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+    <form action="{% url 'rating' %}" method="POST">
+        {% csrf_token %}
+        <label>Points: <input type="number" name="points" required></label>
+        <button>How many Stars?</button>
+        </form>
+        {% if request.method == "POST" %}
+            {% if error %}
+            {{ error }}
+            {% endif %}
+            {% if points <= 2999  %}
+            <img src="https://media1.giphy.com/media/9bWtqjTlUHccw/giphy.gif">
+
+            {% elif points <= 4999 %}
+            <img src="https://media1.giphy.com/media/9bWtqjTlUHccw/giphy.gif">
+            <img src="https://media1.giphy.com/media/9bWtqjTlUHccw/giphy.gif">
+
+            {% elif points <= 9999 %}
+            <img src="https://media1.giphy.com/media/9bWtqjTlUHccw/giphy.gif">
+            <img src="https://media1.giphy.com/media/9bWtqjTlUHccw/giphy.gif">
+            <img src="https://media1.giphy.com/media/9bWtqjTlUHccw/giphy.gif">
+
+            {% elif points >= 10000 %}
+            <img src="https://media1.giphy.com/media/9bWtqjTlUHccw/giphy.gif">
+            <img src="https://media1.giphy.com/media/9bWtqjTlUHccw/giphy.gif">
+            <img src="https://media1.giphy.com/media/9bWtqjTlUHccw/giphy.gif">
+            <img src="https://media1.giphy.com/media/9bWtqjTlUHccw/giphy.gif">
+
+            {% endif %}
+        {% endif %}
+</body>
+</html>

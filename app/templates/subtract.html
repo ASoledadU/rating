@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="{% url 'subtract' %}" method="POST">
+        {% csrf_token %}
+        <label>X<input type="number" name="x" required></label>
+        <label>Y<input type="number" name="y" required></label>
+        <button>subtract</button>
+    </form>
+    {% if request.method == "POST" %}
+    <p>{{ x }} - {{ y }} = {{ answer }}</p>
+    {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'movies' %}" method="POST">
+    {% csrf_token %}
+    <label>Ticket Sales from A: <input type="number" name="a" required></label>
+    <label>Amount: <input type="number" name="a1" required></label>
+
+    <br>
+
+    <label>Ticket Sales from B: <input type="number" name="b" required></label>
+    <label>Amount: <input type="number" name="b1" required></label>
+
+    <br>
+
+    <label>Ticket Sales from C: <input type="number" name="c" required></label>
+    <label>Amount: <input type="number" name="c1" required></label>
+    <br>
+    <button>Total Revenue</button>
+    </form>
+
+    {% if request.method == "POST" %}
+    <p> Total: ${{ answer }}</p>
+    {% endif %}
+</body>
+</html>
